@@ -1,10 +1,10 @@
-package com.myitworld.springcloudconfigserver;
+package fr.myitworld.currencyconversionservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringCloudConfigServerApplicationTests {
+class CurrencyConversionServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
