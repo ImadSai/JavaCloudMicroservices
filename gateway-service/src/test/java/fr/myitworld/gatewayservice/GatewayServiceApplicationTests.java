@@ -1,10 +1,10 @@
-package fr.myitworld.gateway;
+package fr.myitworld.gatewayservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GatewayApplicationTests {
+class GatewayServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

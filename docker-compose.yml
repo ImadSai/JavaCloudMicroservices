@@ -1,28 +1,51 @@
-version: '3'
+version: "3"
 
 services:
-  outgoing-wont-work:
-    image: alpine
-    networks:
-      - no-internet
-    command: ping -c 3 google.com # will crash
 
-  internal-will-work:
-    image: alpine
-    networks:
-      - no-internet
-    command: ping -c 3 internal-and-external
+  discovery-service:
+    build: ./discovery-service
+    ports:
+      - "10000:10000"
 
-  internal-and-external:
-    image: alpine
-    networks:
-      - no-internet
-      - internet
-    command: ping -c 3 google.com
+  configuration-service:
+    build: ./configuration-service
+    ports:
+      - "10001:10001"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=discovery-service
+    depends_on:
+      - discovery-service
 
-networks:
-  no-internet:
-    driver: bridge
-    internal: true
-  internet:
-    driver: bridge
+  gateway-service:
+    build: ./inventory-service
+    ports:
+      - "8100:8100"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=discovery-service -DCONFIG_SERVER=configuration-service
+    depends_on:
+      - discovery-service
+      - configuration-service
+
+  user-service:
+    build: ./inventory-service
+    ports:
+      - "8100:8100"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=discovery-service -DCONFIG_SERVER=configuration-service
+    depends_on:
+      - discovery-service
+      - configuration-service
+
+  authentication-service:
+    build: ./authentication-service
+    ports:
+      - "8000:8000"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=discovery-service -DCONFIG_SERVER=configuration-service
+    depends_on:
+      - discovery-service
+      - configuration-service

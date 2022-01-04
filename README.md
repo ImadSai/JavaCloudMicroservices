@@ -27,15 +27,15 @@ Nous permet de garder dans un et unique endroit les configurations de nos micros
 
 - Load Balancing entre les instances d'un service.
 
-## Zipkin Distributed Tracing
+### Zipkin Distributed Tracing
 
 - Permet de tracer une requete entre les differentes instances
 
-## Spring Cloud Gateway
+### Spring Cloud Gateway
 
 -
 
-## Resilience4j
+### Resilience4j
 
 - Fault tolerance, definition de la reponse par defaut si un service est down.
 
@@ -45,7 +45,7 @@ Nous permet de garder dans un et unique endroit les configurations de nos micros
 | --------------------------------- | --------------------- |
 | Netflix Eureka Naming Server      | 10000                 |
 | Spring Cloud Config Server        | 10001                 |
-| Spring Cloud Gateway              | 10002                 |
+| Spring Cloud Gateway Service      | 10002                 |
 |                                   |                       |
 | Authentication Service            | 8000, 8001, 8002, ..  |
 | User Service                      | 8100, 8101, 8102, ... |

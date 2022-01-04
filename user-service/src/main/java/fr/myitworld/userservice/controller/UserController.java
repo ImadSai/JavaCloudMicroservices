@@ -12,12 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
 
+    // User repository
     private UserRepository userRepository;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Find User by Email
+     * @param email
+     * @return User
+     */
     @GetMapping(value = "findByEmail")
     public User findUserByEmail(@RequestParam(value = "email") String email) {
         User userFound = this.userRepository.findByEmail(email);
