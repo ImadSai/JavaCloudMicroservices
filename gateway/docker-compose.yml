@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+
+  discovery-service:
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+
+  inventory-service:
+    build: ./inventory-service
+    ports:
+      - "9080:9080"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery-service:8761/eureka
+    depends_on:
+      - discovery-service
+
+  customer-service:
+    build: ./customer-service
+    ports:
+      - "9081:9081"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery-service:8761/eureka
+    depends_on:
+      - discovery-service
