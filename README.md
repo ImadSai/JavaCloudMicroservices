@@ -39,6 +39,14 @@ Nous permet de garder dans un et unique endroit les configurations de nos micros
 
 - Fault tolerance, definition de la reponse par defaut si un service est down.
 
+### Axon Server
+
+```
+ docker run -d --name -p 8024:8024 -p 8124:8124 -v /Users/imadsalki/docker-data/axon-server/data:/data
+ -v /Users/imadsalki/docker-data/axon-server/eventdata:/eventdata -v /Users/imadsalki/docker-data/axon-server/config:/config axoniq
+/axonserver 
+````
+
 ## Ports
 
 | Application                       | Port                  |
