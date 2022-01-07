@@ -1,0 +1,3 @@
+[submodule "JavaCloudMicroservicesConfig"]
+	path = JavaCloudMicroservicesConfig
+	url = https://github.com/ImadSai/JavaCloudMicroservicesConfig.git

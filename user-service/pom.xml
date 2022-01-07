@@ -13,7 +13,7 @@
     <artifactId>user-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user-service</name>
-    <description>User Micro service</description>
+    <description>User Service</description>
 
     <properties>
         <java.version>11</java.version>
