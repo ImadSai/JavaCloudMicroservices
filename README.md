@@ -61,15 +61,19 @@ axoniq.axonserver.hostname=localhost
 axoniq.axonserver.devmode.enabled=true  
 ```
 
-## Ports
+## Architecture Service Ports
 
 | Application                       | Port                  |
 | --------------------------------- | --------------------- |
 | Netflix Eureka Naming Server      | 10000                 |
 | Spring Cloud Config Server        | 10001                 |
 | Spring Cloud Gateway Service      | 10002                 |
-|                                   |                       |
+
+
+## Business Service Ports
+
+| Application                       | Port                  |
+| --------------------------------- | --------------------- |
 | Authentication Service            | 8000, 8001, 8002, ..  |
-| User Service                      | 8100, 8101, 8102, ... |
-
-
+| User Service                      | 8100, 8101, 8102, ..  |
+| Product Service                   | 8200, 8201, 8202, ..  |
