@@ -1,6 +1,6 @@
-package fr.myitworld.productservice.repository;
+package fr.myitworld.productservice.core.data.repository;
 
-import fr.myitworld.productservice.entities.Product;
+import fr.myitworld.productservice.core.data.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

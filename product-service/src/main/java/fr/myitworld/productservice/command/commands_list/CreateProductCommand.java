@@ -1,4 +1,4 @@
-package fr.myitworld.productservice.command;
+package fr.myitworld.productservice.command.commands_list;
 
 import lombok.Builder;
 import lombok.Data;

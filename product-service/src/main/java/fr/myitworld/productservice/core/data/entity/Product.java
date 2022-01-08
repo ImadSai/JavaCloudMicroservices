@@ -1,4 +1,4 @@
-package fr.myitworld.productservice.entities;
+package fr.myitworld.productservice.core.data.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

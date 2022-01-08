@@ -1,5 +1,6 @@
 package fr.myitworld.productservice.command;
 
+import fr.myitworld.productservice.command.commands_list.CreateProductCommand;
 import fr.myitworld.productservice.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;

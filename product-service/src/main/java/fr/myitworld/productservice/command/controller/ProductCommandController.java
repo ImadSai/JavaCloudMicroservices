@@ -1,45 +1,20 @@
-package fr.myitworld.productservice.controller;
+package fr.myitworld.productservice.command.controller;
 
-import com.netflix.discovery.converters.Auto;
-import fr.myitworld.productservice.command.CreateProductCommand;
-import fr.myitworld.productservice.entities.Product;
-import fr.myitworld.productservice.repository.ProductRepository;
+import fr.myitworld.productservice.command.commands_list.CreateProductCommand;
+import fr.myitworld.productservice.core.data.entity.Product;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController {
-
-    // Product repository
-    private ProductRepository productRepository;
-
-    // Environment
-    private Environment env;
+public class ProductCommandController {
 
     // Command Gateway
-    private CommandGateway commandGateway;
-
     @Autowired
-    public ProductController(ProductRepository productRepository, Environment env, CommandGateway commandGateway) {
-        this.productRepository = productRepository;
-        this.env = env;
-        this.commandGateway = commandGateway;
-    }
-
-    /**
-     * Get All products
-     * @return list of products
-     */
-    @GetMapping(value = "/all")
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
+    private CommandGateway commandGateway;
 
     /**
      * Create A Product
