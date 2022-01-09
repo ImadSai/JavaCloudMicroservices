@@ -1,5 +1,6 @@
 package fr.myitworld.productservice.exceptions;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,13 +25,11 @@ public class GlobalExceptionHandler {
     // Handle Method argument not valid exception
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> methodArgumentNotValidExceptionHandling(MethodArgumentNotValidException exception, WebRequest request) {
-
         // Get Errors messages
-        String errors = exception.getBindingResult().getAllErrors().stream().map(error -> error.getDefaultMessage()).collect(Collectors.joining(" , "));
-
+        String errors = exception.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining(" , "));
         ErrorDetails errorDetails =
                 new ErrorDetails(new Date(), errors, request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
     // Handle global exception
