@@ -42,12 +42,11 @@ Nous permet de garder dans un et unique endroit les configurations de nos micros
 ### Axon Server
 
 ```
- docker run -d --name axonserver -p 8024:8024 -p 8124:8124 -p 8025:8025 -v /Users/imadsalki/docker-data/axon-server/data:/data
+ docker run -d --name axonserver -p 8124:8124 -p 8025:8025 -v /Users/imadsalki/docker-data/axon-server/data:/data
  -v /Users/imadsalki/docker-data/axon-server/eventdata:/eventdata -v /Users/imadsalki/docker-data/axon-server/config:/config axoniq/axonserver 
 ````
 
 - port 8025 : Dashboard
-- port 8024 : HTTP
 - port 8124 : gRPC
 - Volume 1  : Stock Data
 - Volume 2  : Stock Events
@@ -59,6 +58,7 @@ server.port=8025
 axoniq.axonserver.name=My Axon Server  
 axoniq.axonserver.hostname=localhost  
 axoniq.axonserver.devmode.enabled=true  
+axon.serializer.events*=jackson
 ```
 
 ## Architecture Service Ports

@@ -29,7 +29,7 @@ public class ProductCommandController {
                 .name(product.getName())
                 .price(product.getPrice())
                 .quantity(product.getQuantity())
-                .id(UUID.randomUUID().toString())
+                .productId(UUID.randomUUID().toString())
                 .build();
 
         String returnedValue;
