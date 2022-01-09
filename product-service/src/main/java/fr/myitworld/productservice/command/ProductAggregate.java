@@ -20,20 +20,14 @@ public class ProductAggregate {
     private BigDecimal price;
     private Integer quantity;
 
-    public ProductAggregate() {}
+    public ProductAggregate() {
+    }
 
     @CommandHandler
     public ProductAggregate(CreateProductCommand createProductCommand) {
 
-        // Validate Product Price
-        if(createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Price cannot be les or equal than Zero");
-        }
+        // Validations Here
 
-        // Validate Product Name
-        if(createProductCommand.getName() == null || createProductCommand.getName().isBlank()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
 
         // We create ProductCreatedEvent and copy properties
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent();

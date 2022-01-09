@@ -4,8 +4,12 @@ import fr.myitworld.productservice.command.commands_list.CreateProductCommand;
 import fr.myitworld.productservice.core.data.entity.Product;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -18,11 +22,12 @@ public class ProductCommandController {
 
     /**
      * Create A Product
+     *
      * @param product
      * @return
      */
     @PostMapping
-    public String createProduct(@RequestBody Product product) {
+    public String createProduct(@Valid @RequestBody Product product) {
 
         // Create a Product Command
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
@@ -36,7 +41,7 @@ public class ProductCommandController {
 
         try {
             returnedValue = commandGateway.sendAndWait(createProductCommand);
-        } catch (Exception e ) {
+        } catch (Exception e) {
             returnedValue = e.getMessage();
         }
 
