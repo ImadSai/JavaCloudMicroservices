@@ -1,5 +1,7 @@
-package fr.myitworld.productservice.exceptions;
+package fr.myitworld.productservice.exceptions.handlers;
 
+import fr.myitworld.productservice.exceptions.ErrorDetails;
+import fr.myitworld.productservice.exceptions.types.ResourceNotFoundException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

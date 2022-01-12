@@ -37,14 +37,6 @@ public class ProductCommandController {
                 .productId(UUID.randomUUID().toString())
                 .build();
 
-        String returnedValue;
-
-        try {
-            returnedValue = commandGateway.sendAndWait(createProductCommand);
-        } catch (Exception e) {
-            returnedValue = e.getMessage();
-        }
-
-        return returnedValue;
+        return commandGateway.sendAndWait(createProductCommand);
     }
 }
