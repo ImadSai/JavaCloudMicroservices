@@ -1,6 +1,7 @@
 package fr.myitworld.productservice.exceptions.handlers;
 
 import fr.myitworld.productservice.exceptions.ErrorDetails;
+import org.axonframework.commandhandling.CommandExecutionException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -22,4 +23,12 @@ public class ProductsServiceErrorHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(value = {CommandExecutionException.class})
+    public ResponseEntity<Object> handleCommandExecutionException(CommandExecutionException exception, WebRequest request) {
+
+        ErrorDetails errorDetails =
+                new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
