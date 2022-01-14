@@ -1,4 +1,4 @@
-package fr.myitworld.productservice.command.lookup_entity;
+package fr.myitworld.productservice.command.lookup.lookup_entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

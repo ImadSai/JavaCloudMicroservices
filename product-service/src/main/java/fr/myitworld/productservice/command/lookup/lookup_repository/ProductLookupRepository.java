@@ -1,6 +1,6 @@
-package fr.myitworld.productservice.command.lookup_repository;
+package fr.myitworld.productservice.command.lookup.lookup_repository;
 
-import fr.myitworld.productservice.command.lookup_entity.ProductLookupEntity;
+import fr.myitworld.productservice.command.lookup.lookup_entity.ProductLookupEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductLookupRepository extends JpaRepository<ProductLookupEntity, String> {

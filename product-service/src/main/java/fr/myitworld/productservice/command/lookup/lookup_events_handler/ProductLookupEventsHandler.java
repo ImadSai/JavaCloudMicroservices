@@ -1,7 +1,7 @@
-package fr.myitworld.productservice.command.lookup_events_handler;
+package fr.myitworld.productservice.command.lookup.lookup_events_handler;
 
-import fr.myitworld.productservice.command.lookup_entity.ProductLookupEntity;
-import fr.myitworld.productservice.command.lookup_repository.ProductLookupRepository;
+import fr.myitworld.productservice.command.lookup.lookup_entity.ProductLookupEntity;
+import fr.myitworld.productservice.command.lookup.lookup_repository.ProductLookupRepository;
 import fr.myitworld.productservice.core.events.ProductCreatedEvent;
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;

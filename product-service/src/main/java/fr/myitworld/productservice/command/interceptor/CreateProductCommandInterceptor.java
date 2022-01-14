@@ -1,8 +1,8 @@
-package fr.myitworld.productservice.command.interceptors;
+package fr.myitworld.productservice.command.interceptor;
 
 import fr.myitworld.productservice.command.commands_list.CreateProductCommand;
-import fr.myitworld.productservice.command.lookup_entity.ProductLookupEntity;
-import fr.myitworld.productservice.command.lookup_repository.ProductLookupRepository;
+import fr.myitworld.productservice.command.lookup.lookup_entity.ProductLookupEntity;
+import fr.myitworld.productservice.command.lookup.lookup_repository.ProductLookupRepository;
 import org.axonframework.commandhandling.CommandMessage;
 import org.axonframework.messaging.MessageDispatchInterceptor;
 import org.slf4j.Logger;
