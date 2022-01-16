@@ -3,6 +3,7 @@ package fr.myitworld.orderservice.command;
 import fr.myitworld.orderservice.command.commands_list.CreateOrderCommand;
 import fr.myitworld.orderservice.core.data.model.OrderStatus;
 import fr.myitworld.orderservice.core.events.OrderCreatedEvent;
+import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -11,6 +12,7 @@ import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.beans.BeanUtils;
 
 @Aggregate
+@NoArgsConstructor
 public class OrderAggregate {
 
     @AggregateIdentifier
@@ -43,5 +45,4 @@ public class OrderAggregate {
         this.addressId = orderCreatedEvent.getAddressId();
         this.orderStatus = orderCreatedEvent.getOrderStatus();
     }
-
 }

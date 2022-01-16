@@ -5,7 +5,8 @@
 - **_Bounded Context :_** Comment nos services sont découpés.
 - **_Configuration Management :_** Comment configurer les instances
 - **_Dynamically Scale UP and Scale DOWN and destribute the load_**.
-- **_Visibility :_** Une requete peut declancher plusieux MS, on veut savoir exactement lequel a fail et pourquoi, savoir lesquels sont UP et running.
+- **_Visibility :_** Une requete peut declancher plusieux MS, on veut savoir exactement lequel a fail et pourquoi,
+  savoir lesquels sont UP et running.
 - **_Pack of Cards :_** Eviter que si un service est down que toute notre architecture tombe à l'eau.
 
 ### Outils :
@@ -53,6 +54,7 @@ Nous permet de garder dans un et unique endroit les configurations de nos micros
 - Volume 3  : Axon Configuration
 
 Axon Configuration : (*axonserver.properties*)
+
 ```
 server.port=8025
 axoniq.axonserver.name=My Axon Server  
@@ -69,7 +71,6 @@ axon.serializer.events*=jackson
 | Spring Cloud Config Server        | 10001                 |
 | Spring Cloud Gateway Service      | 10002                 |
 
-
 ## Business Service Ports
 
 | Application                       | Port                  |
@@ -77,3 +78,4 @@ axon.serializer.events*=jackson
 | Authentication Service            | 8000, 8001, 8002, ..  |
 | User Service                      | 8100, 8101, 8102, ..  |
 | Product Service                   | 8200, 8201, 8202, ..  |
+| Order Service                     | 8200, 8201, 8202, ..  |
